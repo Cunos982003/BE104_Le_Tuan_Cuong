@@ -33,13 +33,4 @@ public class Product {
     @DecimalMin(value = "0.0", inclusive = false)
     @Column(name = "price", nullable = false, precision = 10, scale = 2)
     private BigDecimal price;
-
-    @Enumerated(EnumType.STRING)
-    @Column(name = "status", length = 20)
-    @Builder.Default
-    private ProductStatus status = ProductStatus.IN_STOCK;
-
-    public enum ProductStatus {
-        IN_STOCK, LOW_STOCK, OUT_OF_STOCK
-    }
 }

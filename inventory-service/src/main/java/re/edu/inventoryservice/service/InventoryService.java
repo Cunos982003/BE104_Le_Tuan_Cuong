@@ -69,7 +69,6 @@ public class InventoryService {
                 .productName(product.getProductName())
                 .quantity(product.getQuantity())
                 .price(product.getPrice())
-                .status(product.getStatus() != null ? product.getStatus().name() : "IN_STOCK")
                 .build();
     }
 }
