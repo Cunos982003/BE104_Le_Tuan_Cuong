@@ -1,3 +1,27 @@
+*Sơ đồ kiến trúc
+```text
+┌─────────────────────────────────────────────────────────┐
+│                    API Gateway                          │
+│              (Routes & Global Logging)                  │
+└──────────────┬──────────────────────────────────────────┘
+               │
+        ┌──────┴────────┐
+        │               │
+    ┌────▼─────┐    ┌───▼──────┐
+    │ Order    │    │ Inventory│
+    │ Service  │    │ Service  │
+    └────┬─────┘    └────┬─────┘
+         │               │
+         └───────┬───────┘
+                 │
+           ┌─────▼──────┐
+           │   Eureka   │
+           │  (Registry)│
+           └────────────┘
+
+Communication Methods:
+• Sync: OpenFeign
+```
 Câu 1 Lý do Gateway không gọi trực tiếp đê IP/Port
 - Là để tránh hardcode nếu gateway gọi trực tiếp đến IP/Port của Service, khi service thay đổi IP/Port thì gateway
 sẽ không thể kết nối được
